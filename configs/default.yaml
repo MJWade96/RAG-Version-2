@@ -4,7 +4,7 @@ chunk:
   min_chunk_chars: 50
 retrieval:
   embedding_model: "pritamdeka/S-PubMedBert-MS-MARCO"
-  embedding_device: "cpu"
+  embedding_device: "gpu"
   dense_k: 100
   bm25_k: 100
   fusion_alpha: 0.5

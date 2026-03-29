@@ -96,8 +96,10 @@ def run_pipeline(
 
         chunks = load_chunks(CHUNKS_PATH)
         texts = [chunk["chunk_text"] for chunk in chunks]
+        print(f"      待编码文本数量: {len(texts)}")
         embedder = Embedder(cfg.retrieval.embedding_model, device=cfg.retrieval.embedding_device)
-        vectors = embedder.encode(texts)
+        print(f"      正在编码中...")
+        vectors = embedder.encode(texts, show_progress_bar=True)
         save_dense_index(INDEX_DIR, vectors, chunks)
         print(f"      索引保存完成: {len(chunks)} 个向量 -> {INDEX_DIR}")
     else:

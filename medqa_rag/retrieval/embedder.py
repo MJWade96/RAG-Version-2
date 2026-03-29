@@ -19,11 +19,16 @@ class Embedder:
         self.device = device
         self.model = SentenceTransformer(model_name, device=device)
 
-    def encode(self, texts: Iterable[str], batch_size: int = 64) -> np.ndarray:
+    def encode(
+        self,
+        texts: Iterable[str],
+        batch_size: int = 64,
+        show_progress_bar: bool = False,
+    ) -> np.ndarray:
         return self.model.encode(
             list(texts),
             batch_size=batch_size,
-            show_progress_bar=False,
+            show_progress_bar=show_progress_bar,
             convert_to_numpy=True,
             normalize_embeddings=True,
         )
