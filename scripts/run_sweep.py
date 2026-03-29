@@ -43,6 +43,8 @@ def main() -> None:
         api_key=APP_KEY,
         model=MODEL_ID,
         enable_thinking=ENABLE_THINKING,
+        timeout=cfg.inference.timeout,
+        rate_limit=cfg.inference.rate_limit,
     )
 
     def retriever_factory(current_cfg):

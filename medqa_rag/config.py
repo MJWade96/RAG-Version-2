@@ -57,6 +57,9 @@ class InferenceConfig:
     passage_max_tokens: int = 250
     temperature: float = 0.0
     enable_thinking: bool = True
+    timeout: int = 60
+    max_workers: int = 1
+    rate_limit: float = 10.0  # requests per second
 
 
 @dataclass(slots=True)
@@ -92,6 +95,9 @@ class PipelineConfig:
         payload["retrieval"]["score_normalization"] = self.retrieval.score_normalization.value
         payload["retrieval"]["query_formulation"] = self.retrieval.query_formulation.value
         payload["inference"]["prompt_mode"] = self.inference.prompt_mode.value
+        payload["inference"]["timeout"] = self.inference.timeout
+        payload["inference"]["max_workers"] = self.inference.max_workers
+        payload["inference"]["rate_limit"] = self.inference.rate_limit
         return payload
 
 
