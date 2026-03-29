@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medqa-rag"
+version = "0.1.0"
+description = "A modular MedQA RAG pipeline with hybrid retrieval, reranking, and evaluation."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "faiss-cpu>=1.7.4",
+  "numpy>=1.26.0",
+  "openai>=1.30.0",
+  "pyyaml>=6.0.0",
+  "sentence-transformers>=2.6.0",
+  "transformers>=4.39.0",
+  "wikipedia-api>=0.6.0",
+]
+
+[project.optional-dependencies]
+full = [
+  "faiss-cpu>=1.7.4",
+  "numpy>=1.26.0",
+  "pandas>=2.2.0",
+  "pyyaml>=6.0.0",
+  "requests>=2.31.0",
+  "scipy>=1.11.0",
+  "sentence-transformers>=2.6.0",
+  "statsmodels>=0.14.0",
+  "tqdm>=4.66.0",
+  "transformers>=4.39.0",
+  "wikipedia-api>=0.6.0",
+]
+test = [
+  "pytest>=8.0.0",
+]
+
+[project.scripts]
+medqa-download = "scripts.run_download:main"
+medqa-preprocess = "scripts.run_preprocess:main"
+medqa-embed = "scripts.run_embed:main"
+medqa-baseline = "scripts.run_baseline:main"
+medqa-rag = "scripts.run_rag:main"
+medqa-sweep = "scripts.run_sweep:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["medqa_rag*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

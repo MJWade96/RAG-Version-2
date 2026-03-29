@@ -1,0 +1,28 @@
+chunk:
+  max_tokens: 240
+  overlap: 50
+  min_chunk_chars: 50
+retrieval:
+  embedding_model: "pritamdeka/S-PubMedBert-MS-MARCO"
+  embedding_device: "cpu"
+  dense_k: 100
+  bm25_k: 100
+  fusion_alpha: 0.5
+  score_normalization: "z-score"
+  query_formulation: "question_only"
+rerank:
+  model: "ncbi/MedCPT-Cross-Encoder"
+  enabled: true
+  batch_size: 16
+  top_k: 20
+inference:
+  prompt_mode: "direct"
+  top_k_passages: 3
+  passage_max_tokens: 250
+  temperature: 0.0
+  enable_thinking: true
+experiment:
+  seed: 42
+  subset_size: null
+data_dir: "data"
+results_dir: "results"

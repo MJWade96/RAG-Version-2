@@ -1,0 +1,18 @@
+embedding_model:
+  - "pritamdeka/S-PubMedBert-MS-MARCO"
+  - "multi-qa-mpnet-base-dot-v1"
+query_formulation:
+  - "question_only"
+  - "question_plus_options"
+fusion_alpha:
+  - 0.3
+  - 0.5
+reranker_enabled:
+  - false
+  - true
+prompt_mode:
+  - "direct"
+  - "cot"
+top_k_passages:
+  - 3
+  - 5
