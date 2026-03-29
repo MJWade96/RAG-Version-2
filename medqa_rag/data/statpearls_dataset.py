@@ -213,7 +213,7 @@ def build_statpearls_dataset(base_dir: Path) -> Dict[str, object]:
     The return payload is structured so callers can log or persist the same
     metadata without recomputing counts in each script.
     """
-    statpearls_dir = base_dir / "statpearls"
+    statpearls_dir = base_dir
     archive_path = statpearls_dir / STATPEARLS_ARCHIVE
     extracted_dir = statpearls_dir / EXTRACTED_DIR_NAME
     chunk_dir = statpearls_dir / "chunk"
